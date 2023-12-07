@@ -1,0 +1,110 @@
+
+CREATE TABLE "tb_produtos"(
+	"produto_id" INTEGER,
+	"nome" TEXT NOT NULL,
+	"tipo" TEXT NOT NULL,
+	"preço" TEXT NOT NULL,
+	"Descrição" TEXT NOT NULL,
+	PRIMARY KEY ("produto_id" AUTOINCREMENT)
+);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+CREATE TABLE "tb_mesas"(
+	"mesa_id" INTEGER,
+	"numero" TEXT NOT NULL,
+	"capacidade" TEXT NOT NULL,
+	PRIMARY KEY ("mesa_id" AUTOINCREMENT)
+);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+CREATE TABLE "tb_pedidos"(
+	"pedido_id" INTEGER,
+	"mesa_id" TEXT NOT NULL,
+	"produto_id" TEXT NOT NULL,
+	"quantidade" TEXT NOT NULL,
+	"total" REAL,
+	PRIMARY KEY ("pedido_id" AUTOINCREMENT),
+	FOREIGN KEY ("mesa_id") REFERENCES tb_mesas ("mesa_id")
+	FOREIGN KEY ("produto_id") REFERENCES tb_produtos ("produto_id")
+);
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+INSERT INTO "tb_produtos" (nome, tipo, preço, Descrição) 
+VALUES
+('Lasanha', 'Salgada', '45.50', 'Um prato de massa italiana, composto por camadas de massa intercaladas com molho de carne, queijo e molho de tomate, assado no forno até ficar dourado.'),
+    ('Tiramisù', 'Doce', '35.90', 'Uma sobremesa italiana composta por camadas de biscoitos embebidos em café, creme de queijo mascarpone e cacau em pó.'),
+    ('Sushi', 'Salgada', '65.20', 'Uma iguaria japonesa, que consiste em pedaços de peixe cru, geralmente sobre uma cama de arroz temperado, enrolados em algas marinhas.'),
+    ('Macarons', 'Doce', '40.80', 'Delicados doces franceses feitos de merengue, amêndoas moídas e recheados com uma variedade de cremes e ganaches.'),
+    ('Feijoada', 'Salgada', '55.60', 'Um prato típico da culinária brasileira, feito com feijão preto, carne de porco (como linguiça e bacon) e diversos temperos, geralmente servido com arroz, couve e laranja.'),
+    ('Creme Brûlée', 'Doce', '70.75', 'Uma sobremesa francesa que consiste em creme de baunilha coberto com uma camada de açúcar caramelizado, criando uma casquinha crocante.'),
+    ('Paella', 'Salgada', '47.30', 'Uma especialidade espanhola, preparada em uma paellera (frigideira larga), que inclui arroz, frutos do mar, frango, legumes e açafrão, resultando em um prato colorido e saboroso.'),
+    ('Éclair', 'Doce', '89.10', 'Uma sobremesa francesa em forma de longa massa choux recheada com creme e coberta com uma camada de chocolate.'),
+    ('Ramen', 'Salgada', '38.25', 'Uma sopa japonesa composta por macarrão, caldo (normalmente à base de carne ou peixe), legumes e, às vezes, carne ou ovo cozido.'),
+    ('Cupcake Red Velvet', 'Doce', '96.40', 'Um bolinho vermelho com uma textura macia e sabor levemente achocolatado, geralmente coberto com creme de queijo.');
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+INSERT INTO "tb_mesas" (numero,capacidade)
+VALUES
+('10', '2'),
+('20', '2'),
+('30', '2'),
+('40', '2'),
+('50', '2'),
+('60', '2'),
+('70', '2'),
+('80', '2'),
+('90', '2'),
+('100', '2');
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+INSERT INTO "tb_pedidos" (mesa_id, produto_id, quantidade, total)
+VALUES
+(1, 5, 2, 76.70),
+(2, 4, 2, 161.60),
+(3, 3, 2, 74.15),
+(4, 2, 2, 167.15),
+(5, 1, 2, 129.90),
+(6, 9, 2, 152.39),
+(7, 7, 2, 101.49),
+(8, 10, 2, 103.29),
+(9, 8, 2, 126.74),
+(10, 6, 2, 144.78);
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
